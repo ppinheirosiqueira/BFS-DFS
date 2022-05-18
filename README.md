@@ -39,14 +39,14 @@ A segunda etapa é a introdução das barreiras. Para isso, a partir da segunda 
 
 Assim, a matriz de entrada em nosso teste é:
 
-<center>Imagem matriz</center>
+<center><img src="https://github.com/ppinheirosiqueira/BFS-DFS/blob/main/images/Matriz%20com%20Barreiras.jpeg" style="width:25%;"></center>
 
 ## Programação
 
-<center><IMG SRC="bfs.gif"></center>
+<center><IMG SRC="https://github.com/ppinheirosiqueira/BFS-DFS/blob/main/images/BFS.gif" style="width:25%;"></center>
 
 
-<center><IMG SRC="DFS.gif"></center>
+<center><IMG SRC="https://github.com/ppinheirosiqueira/BFS-DFS/blob/main/images/DFS.gif" style="width:25%;"></center>
 
 ## Saída
 
@@ -57,7 +57,7 @@ Em seguida, vem a matriz do DFS, com 1's no caminho final da pilha, com 0's para
 
 Com a entrada exemplificada, a saída será possível em ambos os casos, sendo neste caso específico o DFS muito mais eficiente do que o BFS, como é possível ver pela saída final:
 
-<center>Imagem saida</center>
+<center><img src="https://github.com/ppinheirosiqueira/BFS-DFS/blob/main/images/Saida.png" style="width:50%;"></center>
 
 # Compilação e Execução
 
