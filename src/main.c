@@ -17,7 +17,6 @@ int main(){
 
 	iAux.linha = 0;
 	iAux.coluna = 0;
-	Enfileira(&f, iAux);
 	matriz[0][0] = 1;
 
 	printf("Essa é a matriz inicialmente: \n");
@@ -27,19 +26,19 @@ int main(){
 
 	// BFS
 	numIteFil = 0;
+	Enfileira(&f, iAux, &numIteFil);
 	
 	while(matriz[n-1][n-1] != 1){
-		FAndarBaixo(matriz, &f, n);
-		FAndarDireita(matriz,&f, n);
-		FAndarCima(matriz,&f);
-		FAndarEsquerda(matriz,&f);
-		Desenfileira(&f);
+		FAndarBaixo(matriz, &f, n, &numIteFil);
+		FAndarDireita(matriz,&f, n, &numIteFil);
+		FAndarCima(matriz,&f, &numIteFil);
+		FAndarEsquerda(matriz,&f, &numIteFil);
+		Desenfileira(&f, &numIteFil);
 
 		if(f.first == f.last || f.first->prox == NULL){
 			possivel = false;
 			break;
 		}
-		numIteFil++;
 	}
 
 	printf("Essa é a matriz final do BFS: \n");
@@ -56,29 +55,28 @@ int main(){
 	// DFS
 	numItePil = 0;
 	possivel = true;
-	Push(&p, iAux);
+	Push(&p, iAux, &numItePil);
 
 	limpaMatriz(matriz,n);
 
 	matriz[0][0] = 1;
 
 	while(matriz[n-1][n-1] != 1){
-		pAndou = PAndarBaixo(matriz, &p, n);
+		pAndou = PAndarBaixo(matriz, &p, n, &numItePil);
 		if (!pAndou)
-			pAndou = PAndarDireita(matriz, &p, n);
+			pAndou = PAndarDireita(matriz, &p, n, &numItePil);
 		if (!pAndou)
-			pAndou = PAndarCima(matriz, &p);
+			pAndou = PAndarCima(matriz, &p, &numItePil);
 		if (!pAndou)
-			pAndou = PAndarEsquerda(matriz, &p);
+			pAndou = PAndarEsquerda(matriz, &p, &numItePil);
 		if (!pAndou){
-			Pop(&p, &iAux);
+			Pop(&p, &iAux, &numItePil);
 			matriz[iAux.linha][iAux.coluna] = 2;
 		}
 		if(p.base == p.top){
 			possivel = false;
 			break;
 		}
-		numItePil++;
 	}
 
 	printf("Essa é a matriz final do DFS: \n");

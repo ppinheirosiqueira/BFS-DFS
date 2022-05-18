@@ -6,14 +6,15 @@ void FFVazia(Fila *f){
 	f->first->prox = NULL;
 }
 
-void Enfileira(Fila *f, Item d){
+void Enfileira(Fila *f, Item d, int *contagem){
 	f->last->prox = (Block*) malloc (sizeof(Block));
 	f->last = f->last->prox;
 	f->last->data = d;
 	f->last->prox = NULL;
+	*contagem = *contagem + 1;
 }
 
-void Desenfileira(Fila *f){
+void Desenfileira(Fila *f, int *contagem){
 	Block *aux;
 
 	if(f->first == f->last || f == NULL || f->first->prox == NULL){
@@ -24,6 +25,7 @@ void Desenfileira(Fila *f){
 	aux = f->first->prox;
 	f->first->prox = aux->prox;
 	free(aux);
+	*contagem = *contagem + 1;
 }
 
 
@@ -38,7 +40,7 @@ void FImprime(Fila *f){
 
 }
 
-void FAndarBaixo(int **matriz, Fila *f, int n){
+void FAndarBaixo(int **matriz, Fila *f, int n, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = f->first->prox->data.linha + 1;
@@ -46,11 +48,11 @@ void FAndarBaixo(int **matriz, Fila *f, int n){
 		matriz[aux][f->first->prox->data.coluna] = 1;
 		NovoItem.linha = f->first->prox->data.linha + 1;
 		NovoItem.coluna = f->first->prox->data.coluna;
-		Enfileira(f, NovoItem);
+		Enfileira(f, NovoItem, contagem);
 	}
 }
 
-void FAndarCima(int **matriz, Fila *f){
+void FAndarCima(int **matriz, Fila *f, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = f->first->prox->data.linha - 1;
@@ -58,11 +60,11 @@ void FAndarCima(int **matriz, Fila *f){
 		matriz[aux][f->first->prox->data.coluna] = 1;
 		NovoItem.linha = f->first->prox->data.linha -1;
 		NovoItem.coluna = f->first->prox->data.coluna;
-		Enfileira(f, NovoItem);
+		Enfileira(f, NovoItem, contagem);
 	}
 }
 
-void FAndarDireita(int **matriz, Fila *f, int n){
+void FAndarDireita(int **matriz, Fila *f, int n, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = f->first->prox->data.coluna + 1;
@@ -70,11 +72,11 @@ void FAndarDireita(int **matriz, Fila *f, int n){
 		matriz[f->first->prox->data.linha][aux] = 1;
 		NovoItem.linha = f->first->prox->data.linha;
 		NovoItem.coluna = f->first->prox->data.coluna + 1;
-		Enfileira(f, NovoItem);
+		Enfileira(f, NovoItem, contagem);
 	}
 }
 
-void FAndarEsquerda(int **matriz, Fila *f){
+void FAndarEsquerda(int **matriz, Fila *f, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = f->first->prox->data.coluna - 1;
@@ -82,6 +84,6 @@ void FAndarEsquerda(int **matriz, Fila *f){
 		matriz[f->first->prox->data.linha][aux] = 1;
 		NovoItem.linha = f->first->prox->data.linha;
 		NovoItem.coluna = f->first->prox->data.coluna - 1;
-		Enfileira(f, NovoItem);
+		Enfileira(f, NovoItem, contagem);
 	}
 }

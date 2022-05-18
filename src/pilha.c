@@ -6,14 +6,15 @@ void FPVazia(Pilha *p){
 	p->base->prox = NULL;
 }
 
-void Push(Pilha *p, Item d){
+void Push(Pilha *p, Item d, int *contagem){
 	Block *aux = (Block*) malloc (sizeof(Block));
 	aux->data = d;
 	aux->prox = p->top;
 	p->top = aux;
+	*contagem = *contagem + 1;
 }
 
-void Pop(Pilha *p, Item *d){
+void Pop(Pilha *p, Item *d, int *contagem){
 	Block *aux;
 
 	if(p->base == p->top || p == NULL){
@@ -25,6 +26,8 @@ void Pop(Pilha *p, Item *d){
 	p->top = aux->prox;
 	*d = aux->data;
 	free(aux);
+	*contagem = *contagem + 1;
+
 }
 
 void PImprime(Pilha *p){
@@ -38,7 +41,7 @@ void PImprime(Pilha *p){
 
 }
 
-bool PAndarBaixo(int **matriz, Pilha *p, int n){
+bool PAndarBaixo(int **matriz, Pilha *p, int n, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = p->top->data.linha + 1;
@@ -46,13 +49,13 @@ bool PAndarBaixo(int **matriz, Pilha *p, int n){
 		matriz[aux][p->top->data.coluna] = 1;
 		NovoItem.linha = p->top->data.linha + 1;
 		NovoItem.coluna = p->top->data.coluna;
-		Push(p, NovoItem);
+		Push(p, NovoItem, contagem);
 		return true;
 	}
 	return false;
 }
 
-bool PAndarCima(int **matriz, Pilha *p){
+bool PAndarCima(int **matriz, Pilha *p, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = p->top->data.linha - 1;
@@ -60,13 +63,13 @@ bool PAndarCima(int **matriz, Pilha *p){
 		matriz[aux][p->top->data.coluna] = 1;
 		NovoItem.linha = p->top->data.linha -1;
 		NovoItem.coluna = p->top->data.coluna;
-		Push(p, NovoItem);
+		Push(p, NovoItem, contagem);
 		return true;
 	}
 	return false;
 }
 
-bool PAndarDireita(int **matriz, Pilha *p, int n){
+bool PAndarDireita(int **matriz, Pilha *p, int n, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = p->top->data.coluna + 1;
@@ -74,13 +77,13 @@ bool PAndarDireita(int **matriz, Pilha *p, int n){
 		matriz[p->top->data.linha][aux] = 1;
 		NovoItem.linha = p->top->data.linha;
 		NovoItem.coluna = p->top->data.coluna + 1;
-		Push(p, NovoItem);
+		Push(p, NovoItem, contagem);
 		return true;
 	}
 	return false;
 }
 
-bool PAndarEsquerda(int **matriz, Pilha *p){
+bool PAndarEsquerda(int **matriz, Pilha *p, int *contagem){
 	int aux;
 	Item NovoItem;
 	aux = p->top->data.coluna - 1;
@@ -88,7 +91,7 @@ bool PAndarEsquerda(int **matriz, Pilha *p){
 		matriz[p->top->data.linha][aux] = 1;
 		NovoItem.linha = p->top->data.linha;
 		NovoItem.coluna = p->top->data.coluna - 1;
-		Push(p, NovoItem);
+		Push(p, NovoItem, contagem);
 		return true;
 	}
 	return false;
