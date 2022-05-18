@@ -42,7 +42,7 @@ Assim, a matriz de entrada em nosso teste é:
 <center><img src="images/Matriz%20com%20Barreiras.jpeg" style="width:25%;"></center>
 
 ## Programação
-Para a construção dos nossos algoritmos, utilizou-se como base os códigos disponibilizados pelo professor, de <a href="https://github.com/mpiress/dynamic_queue">Filaa dinâmica</a> para o BFS, e, <a href="https://github.com/mpiress/dynamic_stack">Pilha dinâmica</a> para o DFS.
+Para a construção dos nossos algoritmos, utilizou-se como base os códigos disponibilizados pelo professor, de <a href="https://github.com/mpiress/dynamic_queue">Fila dinâmica</a> para o BFS, e, <a href="https://github.com/mpiress/dynamic_stack">Pilha dinâmica</a> para o DFS.
 
 Após a entrada de dados com as posições dos obstáculos e o tamanho da matriz, o programa transforma todas as posições informadas em '#' e todas as que sobraram em '0', ou seja, o algoritmo só caminhará em uma determinada posição caso esta apresente o '0'.
 
