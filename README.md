@@ -12,7 +12,7 @@
 
 ## Entrada
 
-<p align="justify">Para o programa funcionar é necessária uma única entrada do usuário. Ela se dá por meio de um arquivo chamado **input.txt**. Este arquivo deve estar na pasta principal do programa junto do makefile. Além disso, ele possui uma formatação própria bem simples e que serve como base para a criação da matriz que os algoritmos serão executados.</p>
+<p align="justify">Para o programa funcionar é necessária uma única entrada do usuário. Ela se dá por meio de um arquivo chamado <b>input.txt</b>. Este arquivo deve estar na pasta principal do programa junto do makefile. Além disso, ele possui uma formatação própria bem simples e que serve como base para a criação da matriz que os algoritmos serão executados.</p>
 
 <p align="justify">Essa formatação se dá por duas etapas, a primeira é um único número logo na primeira linha do arquivo. Este número irá representar o tamanho da matriz que o usuário deseja que o algoritmo rode. Para os exemplos que vamos testar depois o tamanho da matriz será 7, logo, a primeira linha do nosso arquivo será 7:</p>
 
@@ -22,7 +22,7 @@
 
 <p align="justify">Com esta única linha o programa já rodará criando uma matriz 7x7 sem nenhum tipo de barreira.</p>
 
-<p align="justify">A segunda etapa é a introdução das barreiras. Para isso, a partir da segunda linha do arquivo, coloque o par de coordenadas que se deseja criar uma barreira. Esta coordenada deve levar em conta o próprio tamanho da matriz, além de que estamos usando um programa que trabalha com o valor inicial (0,0). Então em uma matriz 7x7, como a do exemplo, a maior coordenada possível é(6,6). Qualquer coordenada com um valor maior que o limite da primeira linha ou menor que 0 provocará erros na execução do programa. Para a introdução desta coordenada é necessário simplesmente que coloque a coordenada do eixo X, uma vírgula, a coordenada do eixo Y. Para a introdução de novas barreiras, sempre coloque na próxima linha, sendo uma barreira nova por linha. A entrada que será testada no nosso exemplo será esta:</p>
+<p align="justify">A segunda etapa é a introdução das barreiras. Para isso, a partir da segunda linha do arquivo, coloque o par de coordenadas que se deseja criar uma barreira. Esta coordenada deve levar em conta o próprio tamanho da matriz, além de que estamos usando um programa que trabalha com o valor inicial (0,0). Então em uma matriz 7x7, como a do exemplo, a maior coordenada possível é (6,6). Qualquer coordenada com um valor maior que o limite da primeira linha ou menor que 0 provocará erros na execução do programa. Para a introdução desta coordenada é necessário simplesmente que coloque a coordenada do eixo X, uma vírgula, a coordenada do eixo Y. Para a introdução de novas barreiras, sempre coloque na próxima linha, sendo uma barreira nova por linha. A entrada que será testada no nosso exemplo será esta:</p>
 
 ```
 7
@@ -51,7 +51,7 @@
 ### <strong> BFS </strong>
 <p align="justify">Para a movimentação do BFS, a função de movimentação possui seguinte estrutura:</p>
 
-### Parâmetros: <code>(int **matriz, Fila *f, int n, int *contagem)</code>
+#### Parâmetros: <code>(int **matriz, Fila *f, int n, int *contagem)</code>
 
 <p align="justify">Cria-se: um inteiro <code><em>aux</em></code> que pegará a próxima posição da matriz na direção do movimento da função, um <code><em>NovoItem</code></em> de tipo <em>Item (que possui os inteiros linha e coluna)</em> que armazenará a nova posição caso o caminho possa ser feito. Para que o algoritmo não tente caminhar sobre uma 'parede' da matriz ou atravessar um obstáculo, um <code>'if'</code> que verifica se a próxima posição é uma parede ou um obstáculo é suficiente para que o programa pule para a próxima direção de caminho. Caso o caminho esteja aberto, transforma-se, então, a posição atual da matriz em '1', completa o passo para a dada direção e, após isso, enfilera-se a posição e incrementa-se um no contador de iterações <code> *contagem</code>.</p>
 
@@ -64,9 +64,9 @@
 ### <strong> DFS </strong>
 <p align="justify">Para a programação do DFS, houveram algumas mudanças a partir do algoritmo BFS. Agora, a função apresenta a seguinte estrutura:</p>
 
-### Parâmetros: <code>(int **matriz, Pilha *p, int n, int *contagem)</code>
+#### Parâmetros: <code>(int **matriz, Pilha *p, int n, int *contagem)</code>
 
-<p align="justify">Cria-se: um inteiro <code><em>aux</em></code> que pegará a próxima posição da matriz na direção do movimento da função, um <code><em>NovoItem</code></em> de tipo <em>Item (que possui os inteiros linha e coluna)</em> que armazenará a nova posição caso o caminho possa ser feito. Para que o algoritmo não tente caminhar sobre uma 'parede' da matriz ou atravessar um obstáculo, um <code>'if'</code> que verifica se a próxima posição é uma parede ou um obstáculo é suficiente para que o programa pule para a próxima direção de caminho. Caso o caminho esteja aberto, transforma-se, então, a posição atual da matriz em '1', completa o passo para a dada direção e, após isso, empilhaa-se a posição e incrementa-se um no contador de iterações <code> *contagem</code>. Agora, a função é booleana e retorna <code>true</code> caso conclua o passo dado.</p>
+<p align="justify">Cria-se: um inteiro <code><em>aux</em></code> que pegará a próxima posição da matriz na direção do movimento da função, um <code><em>NovoItem</code></em> de tipo <em>Item (que possui os inteiros linha e coluna)</em> que armazenará a nova posição caso o caminho possa ser feito. Para que o algoritmo não tente caminhar sobre uma 'parede' da matriz ou atravessar um obstáculo, um <code>'if'</code> que verifica se a próxima posição é uma parede ou um obstáculo é suficiente para que o programa pule para a próxima direção de caminho. Caso o caminho esteja aberto, transforma-se, então, a posição atual da matriz em '1', completa o passo para a dada direção e, após isso, empilha-se a posição e incrementa-se um no contador de iterações <code> *contagem</code>. Agora, a função é booleana e retorna <code>true</code> caso conclua o passo dado.</p>
 
 <p align="justify">Na chamada da função no <code>main()</code> há agora uma variável booleana <code>pAndou</code> que verificará caso o passo foi dado. Se nenhuma função retornar <code>true</code> o algoritmo transforma a posição atual da pilha em um obstáculo desempilha a mesma e continua a verificar a partir da anterior.</p>
 
@@ -78,9 +78,11 @@
 
 <p align="justify">A saída do programa é em ordem:</p>
   
-* <p align="justify">A matriz do BFS final com 1's em todos os pontos visitados pelo método, 0's para os não visitados e # para as barreiras. Em sequência a esta matriz vem a quantidade de iterações feitas caso tenha sido possível chegar em seu objetivo final.</p>
-
-* <p align="justify">Em seguida, vem a matriz do DFS, com 1's no caminho final da pilha, com 0's para os não visitados e # para as barreiras e os pontos que foram visitados e retornados depois. Em sequência a esta matriz vem a quantidade de iterações feitas caso tenha sido possível chegar em seu objetivo final.</p>
+1. <p align="justify">A matriz do BFS final com 1's em todos os pontos visitados pelo método, 0's para os não visitados e # para as barreiras;</p> 
+2. <p align="justify">A quantidade de iterações feitas pelo BFS caso tenha sido possível chegar em seu objetivo final;</p>
+3. <p align="justify">A matriz do DFS, com 1's no caminho final da pilha, com 0's para os não visitados e # para as barreiras e os pontos que foram visitados e retornados depois;</p>
+4. <p align="justify">A quantidade de iterações feitas pelo DFS caso tenha sido possível chegar em seu objetivo final;</p>
+5. <p align="justify">A comparação entre os casos.</p>
 
 <p align="justify">Com a entrada exemplificada, a saída será possível em ambos os casos, sendo neste caso específico o DFS muito mais eficiente do que o BFS, como é possível ver pela saída final:</p>
 
