@@ -72,7 +72,7 @@
 
 <p align="justify">Segue abaixo uma demonstração de como nosso algoritmo de DFS se comporta dada a entrada colocada anteriormente, os vértices em preto são os obstáculos, os em lilás são as posições visitadas, os vermelhos as posições que foram transformadas em obstáculo e o verde a posição final:</p>
 
-<p align="center"><IMG SRC="images/DFS.gif"  width="50%"></p>
+<p align="center"><IMG SRC="images/DFS.gif" width="50%"></p>
 
 ## Saída
 
@@ -86,7 +86,7 @@
 
 <p align="justify">Com a entrada exemplificada, a saída será possível em ambos os casos, sendo neste caso específico o DFS muito mais eficiente do que o BFS, como é possível ver pela saída final:</p>
 
-<p align="center"><img src="images/Saida.png" style="width:50%;"></p>
+<p align="center"><img src="images/Saida.png" width:"80%"></p>
 
 # Compilação e Execução
 
