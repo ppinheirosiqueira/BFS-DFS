@@ -14,7 +14,7 @@ void Push(Pilha *p, Item d, int *contagem){
 	*contagem = *contagem + 1;
 }
 
-void Pop(Pilha *p, Item *d, int *contagem){
+void Pop(Pilha *p, Item *d){
 	Block *aux;
 
 	if(p->base == p->top || p == NULL){
@@ -26,8 +26,6 @@ void Pop(Pilha *p, Item *d, int *contagem){
 	p->top = aux->prox;
 	*d = aux->data;
 	free(aux);
-	*contagem = *contagem + 1;
-
 }
 
 void PImprime(Pilha *p){

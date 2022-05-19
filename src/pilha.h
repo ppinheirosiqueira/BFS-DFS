@@ -12,7 +12,7 @@ struct Pilha{
 
 void FPVazia(Pilha *p);
 void Push(Pilha *p, Item d, int *contagem);
-void Pop(Pilha *p, Item *d, int *contagem);
+void Pop(Pilha *p, Item *d);
 void PImprime(Pilha *p);
 
 bool PAndarBaixo(int **matriz, Pilha *p, int n, int *contagem);

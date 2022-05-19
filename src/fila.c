@@ -14,7 +14,7 @@ void Enfileira(Fila *f, Item d, int *contagem){
 	*contagem = *contagem + 1;
 }
 
-void Desenfileira(Fila *f, int *contagem){
+void Desenfileira(Fila *f){
 	Block *aux;
 
 	if(f->first == f->last || f == NULL || f->first->prox == NULL){
@@ -25,7 +25,6 @@ void Desenfileira(Fila *f, int *contagem){
 	aux = f->first->prox;
 	f->first->prox = aux->prox;
 	free(aux);
-	*contagem = *contagem + 1;
 }
 
 

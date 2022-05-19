@@ -33,7 +33,7 @@ int main(){
 		FAndarDireita(matriz,&f, n, &numIteFil);
 		FAndarCima(matriz,&f, &numIteFil);
 		FAndarEsquerda(matriz,&f, &numIteFil);
-		Desenfileira(&f, &numIteFil);
+		Desenfileira(&f);
 
 		if(f.first == f.last || f.first->prox == NULL){
 			possivel = false;
@@ -70,7 +70,7 @@ int main(){
 		if (!pAndou)
 			pAndou = PAndarEsquerda(matriz, &p, &numItePil);
 		if (!pAndou){
-			Pop(&p, &iAux, &numItePil);
+			Pop(&p, &iAux);
 			matriz[iAux.linha][iAux.coluna] = 2;
 		}
 		if(p.base == p.top){
